@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Sample Data</title>
+</head>
+<body>
+
+<table>
+    {% for record in data %}
+        <tr>
+            <td> {{ record.patientID }} </td>
+            <td> {{ record.twoDBarcode }} </td>
+            <td> {{ record.well_position }} </td>
+            <td> {{ record.barcode }} </td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

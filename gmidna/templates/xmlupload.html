@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XML Upload</title>
+</head>
+<body>
+
+        <form method="POST" enctype="multipart/form-data" name="hospdataForm">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Upload hospital blood samples">
+        </form>
+
+</body>
+</html>

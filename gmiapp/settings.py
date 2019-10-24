@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -26,7 +26,11 @@ SECRET_KEY = '#y8ve*csj^l#-np7f4e9a+^u8z34_-1814y!a(1=h0#m%9#f^h'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') # PROJECT_PATH + '/media/'
 
+TEMPLATE_DIRS = (
+    PROJECT_PATH + '/templates/',
+)
 
 # Application definition
 
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'gmiapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join('TEMPLATE_DIRS', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

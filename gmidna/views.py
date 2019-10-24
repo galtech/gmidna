@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from gmidna.models import Flexstar
 from .forms import UploadCSVFileForm, UploadXMLFileForm
 
+# main index navigation page
 def index(request):
     dataCapture = """
         Welcome to the data processing app
@@ -17,10 +18,12 @@ def index(request):
         """
     return HttpResponse(dataCapture)
 
+# display patient sample data records
 def viewdata(request):
     patientList = Flexstar.objects.select_related().all()
     return render(request, 'viewdata.html', { 'data': patientList})
 
+# display form to upload CSV data file
 def get_csv(request):
     if request.method == 'POST':
         form = UploadCSVFileForm(request.POST, request.FILES)
@@ -32,6 +35,7 @@ def get_csv(request):
 
     return render(request, 'csvupload.html', { 'form': form})
 
+# display form to upload XML data file
 def get_xml(request):
     if request.method == 'POST':
         form = UploadXMLFileForm(request.POST, request.FILES)

@@ -3,7 +3,7 @@ import csv
 import xml.etree.ElementTree as ET
 from django.utils import timezone
 
-
+# process uploaded CSV data file
 class UploadCSVFileForm(forms.Form):
     file = forms.FileField()
     #title = forms.CharField(max_length=50)
@@ -17,6 +17,7 @@ class UploadCSVFileForm(forms.Form):
                 data = list(cr)
                 return data
 
+# process uploaded XML data file
 class UploadXMLFileForm(forms.Form):
     file = forms.FileField()
     #title = forms.CharField(max_length=50)
